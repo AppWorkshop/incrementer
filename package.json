@@ -5,7 +5,7 @@
   "main": "incrementer.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
-    "docs": "./node_modules/jsdoc-to-markdown/bin/cli.js incrementer.js > API.md"
+    "docs": "jsdoc2md incrementer.js > API.md"
   },
   "homepage": "https://github.com/appworkshop/incrementer",
   "repository": {
@@ -19,7 +19,6 @@
   "author": "Mike Cunneen",
   "license": "ISC",
   "devDependencies": {
-    "jsdoc-to-markdown": "^3.0.2",
     "mocha": "^4.0.1"
   }
 }

@@ -11,10 +11,13 @@ A simple library that lets you define your own number sequence using arbitrary c
 ```js
   let incrementer = require('incrementer');
   let numsys = "0ABCDEF"; 
-  let padChar = "A";
+  let padChar = "0";
   let length = 2;
 
-
+  let result = incrementer.increment(numsys, incrementer.padNumberToLength("E",length,padChar); // 0E => 0F
+  // OR: 
+  result = incrementer.padAndIncrement(numsys, "E", length, padChar); // 0E => 0F
+  let scope = incrementer.calculateNumberOfValues(numsys,2); // number of possible values === 7^2 => 49
 ```
 
 ## Examples

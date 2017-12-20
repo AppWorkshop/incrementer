@@ -1,5 +1,7 @@
 # Incrementer
 
+[![Build Status](https://travis-ci.org/AppWorkshop/incrementer.svg?branch=master)](https://travis-ci.org/AppWorkshop/incrementer)
+
 A simple library that lets you define your own number sequence using arbitrary characters.
 
 ## Installation

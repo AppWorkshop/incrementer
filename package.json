@@ -1,0 +1,25 @@
+{
+  "name": "incrementer",
+  "version": "1.0.0",
+  "description": "Allows simple incrementing for arbitrary sequences e.g. AA=>AB or 09=>10",
+  "main": "incrementer.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "docs": "./node_modules/jsdoc-to-markdown/bin/cli.js incrementer.js > API.md"
+  },
+  "homepage": "https://github.com/appworkshop/incrementer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appworkshop/incrementer"
+  },
+  "keywords": [
+    "sequence",
+    "increment"
+  ],
+  "author": "Mike Cunneen",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^3.0.2",
+    "mocha": "^4.0.1"
+  }
+}

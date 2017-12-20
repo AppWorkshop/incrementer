@@ -12,7 +12,7 @@ exports.padNumberToLength = function(inval, length, padChar = "0") {
     }
   }
   return inval;  
-}
+};
 
 /**
  * given the provided number system, increment startVal. Assumes startVal is already the desired length.
@@ -23,38 +23,36 @@ exports.padNumberToLength = function(inval, length, padChar = "0") {
 exports.increment = function(numsys, startVal) {
 
   // console.log(`increment("${numsys}","${startVal}")`);
-  var newVal = "";
+  let newVal = "";
   // go through the string from right to left, one char at at time.
   // for each char:
   //   increment (possibly rolling over and setting need to carry the next one)
   //   if we need to carry to the next digit place, continue. otherwise break.
-  for (
-    var charIdx = (startVal.length - 1), charVal = startVal.charAt(charIdx);
+  let charIdx = (startVal.length - 1), charVal = startVal.charAt(charIdx);
+  for (;
     (charIdx >= 0);
     charVal = startVal.charAt(--charIdx)
   ) {
-
-    var isLeftmostDigit = (charIdx === 0);
-    var newDigitValue;
-    var currentNumsysIdx = numsys.indexOf(charVal);
+    let newDigitValue;
+    const currentNumsysIdx = numsys.indexOf(charVal);
 
     // console.log(`0: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
 
     if (currentNumsysIdx !== -1) { // this digit is not a padding char i.e. it is in the num system
       if (currentNumsysIdx === (numsys.length - 1)) {
         // this digit has the highest possible value already; reset it to the lowest and continue (to "carry")
-        newDigitValue = numsys.charAt(0)
-        // console.log(`1: newDigitValue=${newDigitValue}`);
+        newDigitValue = numsys.charAt(0);
+        //   console.log(`1: newDigitValue=${newDigitValue}`);
         // newVal is broken into 2 parts: (1) the digit we just changed; (2) the ones we changed before. Remaining ones will be added as we progress.
         newVal = newDigitValue + newVal;
-        // console.log(`1: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
+        //   console.log(`1: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
       } else {
         // this digit isn't yet at it's highest possible value. Just increment it and finish. No carrying of next digit.
         newDigitValue = numsys.charAt(currentNumsysIdx + 1);
-        // console.log(`2: newDigitValue=${newDigitValue}`);
+        //   console.log(`2: newDigitValue=${newDigitValue}`);
         // newVal is broken into 3 parts: (1) the unchanged digits; (2) the one we just changed; (3) the ones we changed before.
         newVal = startVal.substring(0, charIdx) + newDigitValue + newVal;
-        // console.log(`2: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
+        //   console.log(`2: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
         break;
       }
     } else {
@@ -62,13 +60,13 @@ exports.increment = function(numsys, startVal) {
       newDigitValue = numsys.charAt(0);
       // newVal is broken into 3 parts: (1) the unchanged digits; (2) the one we just changed; (3) the ones we changed before.
       newVal = startVal.substring(0, charIdx) + newDigitValue + newVal;
-      // console.log(`3: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
+      //   console.log(`3: charIdx=${charIdx}, charVal=${charVal}, inval=${inval}, currentNumsysIdx=${currentNumsysIdx}, newVal=${newVal}`);
       break;
     }
   }
-  // console.log(`increment ${startVal} is ${newVal} with number system ${numsys}`);
+  //   console.log(`increment ${startVal} is ${newVal} with number system ${numsys}`);
   return newVal;
-}
+};
 
 /**
  * Pads a number to the appropriate length before incrementing.
@@ -83,7 +81,7 @@ exports.padAndIncrement = function(numsys, startVal, length, padChar){
     startVal = this.padNumberToLength(startVal, length, padChar);
   }
   return this.increment(numsys, startVal);
-}
+};
 
 /**
  * Returns the total number of possible unique values in the sequence
@@ -92,4 +90,4 @@ exports.padAndIncrement = function(numsys, startVal, length, padChar){
  */
 exports.calculateNumberOfValues = function(numsys, length) {
   return Math.pow(numsys.length, length);
-}
+};

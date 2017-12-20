@@ -9,7 +9,7 @@ A simple library that lets you define your own number sequence using arbitrary c
 ## Usage
 
 ```js
-  let incrementer = require('incrementer');
+  let incrementer = require('number-sequence');
   let numsys = "0ABCDEF"; 
   let padChar = "0";
   let length = 2;

@@ -1,5 +1,5 @@
 {
-  "name": "incrementer",
+  "name": "number-sequence",
   "version": "1.0.0",
   "description": "Allows simple incrementing for arbitrary sequences e.g. AA=>AB or 09=>10",
   "main": "incrementer.js",

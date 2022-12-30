@@ -19,6 +19,6 @@
   "author": "Mike Cunneen",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^7.1.1"
+    "mocha": "^10.2.0"
   }
 }
